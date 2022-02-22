@@ -1,0 +1,220 @@
+.container {
+  padding-bottom: 150px;
+}
+
+.depart-return {
+  margin-top: 40px;
+}
+
+.depart-return p {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  box-shadow: 0 0 1px 0px #9a9a9a;
+  border-radius: 5px;
+  color: gray;
+  background-color: #dcdcdc8a;
+}
+
+.depart-return .selected {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  box-shadow: 0 0 3px 0px #9a9a9a;
+  border-radius: 5px;
+  color: black;
+  background-color: #fff;
+}
+
+.depart-return p.chosen {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-shadow: 0 0 1px 0px #9a9a9a;
+  border-radius: 5px;
+  color: black;
+  background-color: #dcdcdc8a;
+}
+
+.fa-check {
+  color: green;
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 2rem;
+  color: #343d84;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  padding: 0;
+}
+
+.list li {
+  margin-left: 20px;
+}
+
+.list li a {
+  color: #0b1560;
+  text-decoration: none;
+}
+
+.sort {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: -50px;
+}
+
+.flight {
+  margin-top: 50px;
+  border: 1px solid #d7d7d7;
+  border-radius: 8px;
+  padding: 30px;
+  padding-left: 50px;
+}
+
+.top {
+  display: flex;
+}
+
+.details {
+  margin-left: 60px;
+  margin-top: 40px;
+}
+
+.flight-time {
+  width: 70%;
+  border-right: 1px dashed rgba(114, 114, 114, 0.646);
+}
+
+.land {
+  padding-top: 50px;
+  border-left: 1px solid black;
+  margin-left: 10px;
+}
+
+.bottom {
+  margin-top: 20px;
+}
+
+.price {
+  font-weight: 700;
+  color: #a53f8c;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 10px;
+  padding-left: 50px;
+  padding-right: 100px;
+  margin-bottom: 1px;
+  cursor: pointer;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid #d2d2d2;
+  border-radius: 5px;
+}
+
+.airplane {
+  margin-right: 5px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  max-width: 900px;
+  height: 55px;
+  background-color: #0b1560;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  color: white;
+}
+
+.footer p {
+  margin: 0;
+  text-align: center;
+  width: 50%;
+}
+
+.cont-btn {
+  width: 50%;
+  height: 80%;
+  margin-right: 7px;
+  border-radius: 4px;
+  background-color: #03a5a2;
+  color: #fff;
+  font-weight: 700;
+  border: none;
+}
+.cont-btn:hover {
+  background-color: #37d2cf;
+}
+
+/* //////////////////////////////////////////////////
+  ////////////////////////////////////////////////// */
+
+/* Hide the browser's default radio button */
+.wrapper input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 9px;
+  left: 9px;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.wrapper:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.wrapper input:checked ~ .checkmark {
+  background-color: #2196f3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.wrapper input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.wrapper .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}

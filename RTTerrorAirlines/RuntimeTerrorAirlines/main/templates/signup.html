@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <title>RunTime Terror Airlines</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+</script>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/nav.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
+
+    
+    <style>
+                * {
+        box-sizing:border-box;
+        }
+        .background{
+          position: fixed;
+          z-index: -1;
+          top: 0;
+          left: 0;
+          height: 100vh;
+          width: 100vw;
+          background-image: url({% static 'images/bg.jpg' %});
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: top;
+          background-color: #fff;
+          filter: blur(14px);
+          opacity: .7;
+        }
+        .form {
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        width:450px;
+        background:#fff;
+        box-shadow:0px 0px 10px 5px #ccc;
+        }
+        .form .tab-header {
+        height:50px;
+        line-height:50px;
+        }
+        .form .tab-header > div {
+        width:50%;
+        float:left;
+        text-align:center;
+        background:#ddd;
+        color:#555;
+        cursor:pointer;
+        }
+        .form .tab-header > div.active {
+        background:#fff;
+        color:#111;
+        }
+        .form .tab-content {
+        padding:20px;
+        }
+        .form .tab-content .form-element {
+        margin:10px 0px;
+        }
+        .form .tab-content .form-element input {
+        width:100%;
+        padding:10px;
+        border:1px solid #aaa;
+        font-size:16px;
+        background:#f5f5f5;
+        border-radius:5px;
+        outline:none;
+        }
+        .form .tab-content .form-element input[type="checkbox"] {
+        width:30px;
+        margin:8px 0px;
+        margin-left:-5px;
+        }
+        .form .tab-content .form-element label {
+        color:#111;
+        }
+        .form .tab-content .form-element button {
+        margin-top:5px;
+        width:100%;
+        padding:10px;
+        border:none;
+        outline:none;
+        background:rgb(60, 68, 128);
+        color:#f5f5f5;
+        font-size:16px;
+        text-transform:uppercase;
+        cursor:pointer;
+        border-radius:5px;
+        }
+        .form .tab-content > div.active {
+        display:block;
+        }
+        .form .tab-content > div {
+        display:none;
+        }
+    </style>
+   
+</head>
+<body>
+<div class="background">
+    </div>
+  <div class="container-fluid px-0">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-black py-0 px-0">
+          <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span
+                  class="navbar-toggler-icon"></span> </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <a class="nav-link login" href="#" style="font-size: 20px;"><i></i>Runtime Terror Airlines</a>   
+            <ul class="navbar-nav">
+                  <!-- <li class="nav-item active"> <a class="nav-link" href="#">BOOK</a> </li>
+                  <li class="nav-item"> <a class="nav-link" href="#">MANAGE</a> </li>
+                  <li class="nav-item"> <a class="nav-link" href="#">CHECK IN</a> </li> -->
+              </ul>
+  
+              <!-- <a class="nav-link login" href="#"><i class="fas fa-sign-in-alt"></i>LOG IN</a> -->
+          </div>
+  
+      </nav>
+      <!-- <div class="logo">
+          <h2 class="brand">Runtime Terror Airlines</h2>
+          <label class="empty"></label>
+      </div> -->
+  <div class="form">
+    {% if messages %}
+    <ul class=" messages text-danger">
+        {% for m in messages %}
+            <li>{{ m }}</li>
+        {% endfor %}
+    </ul>
+  {% endif %}
+    <div class="tab-header">
+      <div><a href="/login" style="text-decoration: none; color: black;">Sign In</a></div>
+      <div class="active">Sign Up</div>
+    </div>
+    <div class="tab-content">       
+        <form action="/signup_process" method="post">
+          {% csrf_token %}
+          <div class="form-element">
+            <input type="text" placeholder="FIRST NAME" name="fname">
+          </div>
+          <div class="form-element">
+            <input type="text" placeholder="FAMILY NAME" name="lname">
+          </div>
+          <div class="form-element">
+            <input type="date" placeholder="DATE OF BIRTH" name="birth-date">
+          </div>
+          <div class="form-element">
+            <input type="text" placeholder="PHONE NUMBER" name="phone_number">
+          </div>
+          <div class="form-element">
+            <input type="email" placeholder="EMAIL ADDRESS" name="email">
+          </div>
+          <div class="form-element">
+            <input type="password" placeholder="PASSWORD" name="password">
+          </div>
+          <div class="form-element">
+            <input type="password" placeholder="CONFIRM PASSWORD" name="pwd_confirm">
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              I have read and accept the Terms of Service of the Runtime Terror Airlines.
+            </label>
+          </div>
+          <div class="form-element">
+            <button type="submit">Sign Up</button>
+          </div>
+        </form>
+        </div>
+  <!-- <script>
+        
+        let tabPanes = document.getElementsByClassName("tab-header")[0].getElementsByTagName("div");
+ 
+        for(let i=0;i<tabPanes.length;i++){
+        tabPanes[i].addEventListener("click",function(){
+            document.getElementsByClassName("tab-header")[0].getElementsByClassName("active")[0].classList.remove("active");
+            tabPanes[i].classList.add("active");
+            
+            document.getElementsByClassName("tab-content")[0].getElementsByClassName("active")[0].classList.remove("active");
+            document.getElementsByClassName("tab-content")[0].getElementsByClassName("tab-body")[i].classList.add("active");
+        });
+        }
+     
+  </script>  -->
+
+  
+</body>
+</html>

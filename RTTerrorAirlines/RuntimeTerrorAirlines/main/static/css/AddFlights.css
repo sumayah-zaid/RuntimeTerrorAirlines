@@ -1,0 +1,32 @@
+.container {
+  padding-bottom: 150px;
+}
+
+.Add_flight {
+  margin-top: 50px;
+  border: 1px solid #d7d7d7;
+  border-radius: 8px;
+  padding: 30px;
+  padding-left: 50px;
+}
+
+.top {
+  display: flex;
+}
+
+.add_part1 {
+  margin-left: 100px;
+  width: 40%;
+}
+
+.add_part2 {
+  width: 60%;
+}
+
+label{
+  width: 150px;
+}
+
+input{
+  width: 200px;
+}
